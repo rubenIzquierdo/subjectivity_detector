@@ -45,8 +45,8 @@ for tagging new sentences.
 ##Detecting subjective sentences##
 
 When you have your trained models or you used the models pre-trained, you can make use of this tool for assigning subjectivity values to sentences. 
-The main function is classify_sentences, on the `lib/classifier.py` file. Within this file there is a small main function which shows the usage:
-````shell
+The main function is classify_sentences, on the `lib/classifier.py` file. In the main root folder there is an example script `example_classify_sentences.py` which shows the usage:
+```shell
     sentences = []
     sentences.append(['This','is','a','sentence'])
     sentences.append(['This','is','a','very','interesting','sentence'])
@@ -55,7 +55,15 @@ The main function is classify_sentences, on the `lib/classifier.py` file. Within
     svm_values = classify_sentences(sentences,'/home/izquierdo/mybitbucket/subjectivity_detector/my_classifier/model')
     for idx, value in enumerate(svm_values):
         print sentences[idx],value
-````
+```
+
+And this will generate:
+```shell
+['This', 'is', 'a', 'sentence'] 0.32386576
+['This', 'is', 'a', 'very', 'interesting', 'sentence'] 0.53049329
+['I', 'think', 'this', 'is', 'a', 'simple', 'sentence'] 0.77534662
+['Nells', 'Park', 'Hotel'] -1.0001291
+```
 
 You can import the classify_sentences in your python script and use it in this same fashion. This function takes as input 2 parameters:
 
